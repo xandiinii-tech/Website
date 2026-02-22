@@ -63,9 +63,7 @@ export const HeroSection = () => {
                 { name: "SoundCloud", icon: `${baseUrl}soundcloud.svg`, link: "https://soundcloud.com/xandiinii" },
                 { name: "YouTube", icon: `${baseUrl}youtube.svg`, link: "https://www.youtube.com/@Xandiinii" },
                 { name: "Spotify", icon: `${baseUrl}spotify.svg`, link: "https://open.spotify.com/search/x%20andini" },
-                { name: "Apple Music", icon: `${baseUrl}apple-music.svg`, link: "https://music.apple.com" },
-                { name: "Buy Me a Coffee", icon: `${baseUrl}paypal.svg`, link: "https://www.paypal.com/paypalme/IgorAndin" },
-                { name: "Buy a Cocktail", icon: `${baseUrl}icons8-revolut-50-umgewandelt-von-png.svg`, link: "https://revolut.me/igoruuvzu/pocket/Fn7zegM3Rb" }
+                { name: "Apple Music", icon: `${baseUrl}apple-music.svg`, link: "https://music.apple.com" }
               ].map((platform) => (
                 <a
                   key={platform.name}
@@ -86,6 +84,33 @@ export const HeroSection = () => {
               <a href="#soundcloud" className="px-8 py-4 border-2 border-purple-500 hover:bg-purple-600/20 rounded-lg font-bold transition text-lg">
                 Listen Now
               </a>
+            </div>
+            <div className="mt-6">
+              <p className="text-xs uppercase tracking-[0.35em] text-purple-300 mb-3">Buy a Cocktail</p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="https://www.paypal.com/paypalme/IgorAndin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-3 bg-gradient-to-br from-[#5A2D82] to-[#D12B81] rounded-xl text-white font-semibold text-sm hover:scale-105 transition"
+                >
+                  <img src={`${baseUrl}paypal.svg`} alt="PayPal" className="w-5 h-5" />
+                  PayPal
+                </a>
+                <a
+                  href="https://revolut.me/igoruuvzu/pocket/Fn7zegM3Rb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-5 py-3 bg-gradient-to-br from-[#401c58] to-[#7426a9] rounded-xl text-white font-semibold text-sm hover:scale-105 transition"
+                >
+                  <img
+                    src={`${baseUrl}icons8-revolut-50-umgewandelt-von-png.svg`}
+                    alt="Revolut"
+                    className="w-5 h-5"
+                  />
+                  Revolut
+                </a>
+              </div>
             </div>
           </div>
         </div>
