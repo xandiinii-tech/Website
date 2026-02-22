@@ -29,7 +29,7 @@ export const Footer = () => {
               {[
                 { name: "Instagram", icon: `${baseUrl}instagram.svg`, url: "https://www.instagram.com/x_andiinii/" },
                 { name: "SoundCloud", icon: `${baseUrl}soundcloud.svg`, url: "https://soundcloud.com/xandiinii" },
-                { name: "YouTube", icon: `${baseUrl}youtube.svg`, url: "https://www.xandini.de" },
+                { name: "YouTube", icon: `${baseUrl}youtube.svg`, url: "https://www.youtube.com/@Xandiinii" },
                 { name: "Spotify", icon: `${baseUrl}spotify.svg`, url: "https://open.spotify.com/search/x%20andini" },
                 { name: "Apple Music", icon: `${baseUrl}apple-music.svg`, url: "https://music.apple.com" },
               ].map((social, idx) => (

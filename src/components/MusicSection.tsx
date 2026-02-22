@@ -13,7 +13,7 @@ export const MusicSection = () => {
     },
     {
       name: "YouTube",
-      link: "https://www.xandini.de",
+      link: "https://www.youtube.com/@Xandiinii",
       icon: `${baseUrl}youtube.svg`
     },
     {

@@ -61,7 +61,7 @@ export const HeroSection = () => {
               {[
                 { name: "Instagram", icon: `${baseUrl}instagram.svg`, link: "https://www.instagram.com/x_andiinii/" },
                 { name: "SoundCloud", icon: `${baseUrl}soundcloud.svg`, link: "https://soundcloud.com/xandiinii" },
-                { name: "YouTube", icon: `${baseUrl}youtube.svg`, link: "https://www.xandini.de" },
+                { name: "YouTube", icon: `${baseUrl}youtube.svg`, link: "https://www.youtube.com/@Xandiinii" },
                 { name: "Spotify", icon: `${baseUrl}spotify.svg`, link: "https://open.spotify.com/search/x%20andini" },
                 { name: "Apple Music", icon: `${baseUrl}apple-music.svg`, link: "https://music.apple.com" }
               ].map((platform) => (
