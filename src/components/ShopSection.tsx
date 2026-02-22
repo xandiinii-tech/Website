@@ -8,6 +8,8 @@ export const ShopSection = () => {
       price: "€35",
       description: "Boxy black tee with embroidered neon X on the chest and reflective back print.",
       includes: ["Heavy 240gsm cotton", "Sizes S-XL", "Limited first run"],
+      image:
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
     },
     {
       id: 2,
@@ -17,6 +19,8 @@ export const ShopSection = () => {
       price: "€45",
       description: "Gradient sleeve print that glows under UV—built for late sets and cozy mornings.",
       includes: ["Soft organic cotton", "Thumb-hole cuffs", "Unisex sizing"],
+      image:
+        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
     },
     {
       id: 3,
@@ -26,6 +30,8 @@ export const ShopSection = () => {
       price: "€12",
       description: "Six die-cut vinyl stickers with iridescent finish for laptops, decks, and cases.",
       includes: ["Waterproof + UV safe", "3 large / 3 mini", "Ships flat"],
+      image:
+        "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80",
     },
     {
       id: 4,
@@ -35,6 +41,8 @@ export const ShopSection = () => {
       price: "€18",
       description: "Oversized matte decal with the X grid lines—perfect for flight cases or walls.",
       includes: ["40cm width", "Removable adhesive", "Limited quantity"],
+      image:
+        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
     },
   ];
 
@@ -56,6 +64,15 @@ export const ShopSection = () => {
               key={item.id}
               className="bg-gradient-to-br from-[#120a1f] via-[#1f1033] to-[#2b0f44] border border-purple-500/30 rounded-2xl p-6 shadow-2xl shadow-purple-900/20 hover:-translate-y-1 transition duration-300"
             >
+              <div className="relative mb-5 overflow-hidden rounded-xl">
+                <img
+                  src={item.image}
+                  alt={`${item.name} preview`}
+                  loading="lazy"
+                  className="w-full h-56 object-cover scale-[1.02] hover:scale-105 transition duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-purple-800/30" />
+              </div>
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs uppercase tracking-[0.25em] text-purple-300">{item.type}</span>
                 <span className="px-3 py-1 text-xs font-semibold rounded-full bg-purple-600/20 text-purple-200">
