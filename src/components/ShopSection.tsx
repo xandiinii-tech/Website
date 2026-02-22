@@ -8,8 +8,7 @@ export const ShopSection = () => {
       price: "€35",
       description: "Boxy black tee with embroidered neon X on the chest and reflective back print.",
       includes: ["Heavy 240gsm cotton", "Sizes S-XL", "Limited first run"],
-      image:
-        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+      image: "/MerchTsgirt.png",
     },
     {
       id: 2,
@@ -19,8 +18,7 @@ export const ShopSection = () => {
       price: "€45",
       description: "Gradient sleeve print that glows under UV—built for late sets and cozy mornings.",
       includes: ["Soft organic cotton", "Thumb-hole cuffs", "Unisex sizing"],
-      image:
-        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1200&q=80",
+      image: "/Gemini_Generated_Image_atvorlatvorlatvo.png",
     },
     {
       id: 3,
@@ -30,8 +28,7 @@ export const ShopSection = () => {
       price: "€12",
       description: "Six die-cut vinyl stickers with iridescent finish for laptops, decks, and cases.",
       includes: ["Waterproof + UV safe", "3 large / 3 mini", "Ships flat"],
-      image:
-        "https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80",
+      image: "/MerchSticker.png",
     },
     {
       id: 4,
@@ -41,8 +38,7 @@ export const ShopSection = () => {
       price: "€18",
       description: "Oversized matte decal with the X grid lines—perfect for flight cases or walls.",
       includes: ["40cm width", "Removable adhesive", "Limited quantity"],
-      image:
-        "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80",
+      image: "/MerchRucksack.png",
     },
   ];
 
