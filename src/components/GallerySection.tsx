@@ -1,9 +1,10 @@
 export const GallerySection = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   const gallery = [
-    { id: 1, title: "x andini Portrait", image: "/profil_web.jpg" },
-    { id: 2, title: "Club Vibes - Schillers", image: "/Screenshot 2025-11-14 200142.png" },
-    { id: 3, title: "Live Energy", image: "/Screenshot 2025-11-14 200238.png" },
-    { id: 4, title: "Crowd Moments", image: "/Screenshot 2025-11-14 200304.png" },
+    { id: 1, title: "x andini Portrait", image: `${baseUrl}profil_web.jpg` },
+    { id: 2, title: "Club Vibes - Schillers", image: `${baseUrl}Screenshot 2025-11-14 200142.png` },
+    { id: 3, title: "Live Energy", image: `${baseUrl}Screenshot 2025-11-14 200238.png` },
+    { id: 4, title: "Crowd Moments", image: `${baseUrl}Screenshot 2025-11-14 200304.png` },
   ];
 
   return (

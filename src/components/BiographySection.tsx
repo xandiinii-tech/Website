@@ -1,4 +1,5 @@
 export const BiographySection = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   return (
     <section id="biography" className="py-20 bg-dark-800">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -6,7 +7,7 @@ export const BiographySection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="/profil_web.jpg" 
+              src={`${baseUrl}profil_web.jpg`}
               alt="Artist" 
               className="rounded-lg shadow-lg w-full"
             />

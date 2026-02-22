@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 export const HeroSection = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export const HeroSection = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden border-4 border-purple-500 shadow-2xl shadow-purple-500/50">
               <img 
-                src="/profil_web.jpg" 
+                src={`${baseUrl}profil_web.jpg`}
                 alt="x andini DJ Profile" 
                 className="w-full h-full object-cover"
               />

@@ -1,8 +1,9 @@
 export function SoundCloudSection() {
+  const baseUrl = import.meta.env.BASE_URL;
   const latestSets = [
-    { title: "Schillers Cosmic Rave", artist: "by x andini", link: "https://soundcloud.com/xandiinii", image: "/CosmicRave.jpeg" },
-    { title: "Keta Slow Downtempo #1", artist: "by x andini", link: "https://soundcloud.com/xandiinii", image: "/Keta1.jpeg" },
-    { title: "KetaTempo#2: Tree of Life", artist: "by x andini", link: "https://soundcloud.com/xandiinii", image: "/Keta2.jpg" }
+    { title: "Schillers Cosmic Rave", artist: "by x andini", link: "https://soundcloud.com/xandiinii", image: `${baseUrl}CosmicRave.jpeg` },
+    { title: "Keta Slow Downtempo #1", artist: "by x andini", link: "https://soundcloud.com/xandiinii", image: `${baseUrl}Keta1.jpeg` },
+    { title: "KetaTempo#2: Tree of Life", artist: "by x andini", link: "https://soundcloud.com/xandiinii", image: `${baseUrl}Keta2.jpg` }
   ];
 
   // 2 X's on each side
