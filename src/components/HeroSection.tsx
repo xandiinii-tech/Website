@@ -64,7 +64,8 @@ export const HeroSection = () => {
                 { name: "YouTube", icon: `${baseUrl}youtube.svg`, link: "https://www.youtube.com/@Xandiinii" },
                 { name: "Spotify", icon: `${baseUrl}spotify.svg`, link: "https://open.spotify.com/search/x%20andini" },
                 { name: "Apple Music", icon: `${baseUrl}apple-music.svg`, link: "https://music.apple.com" },
-                { name: "Buy Me a Coffee", icon: `${baseUrl}paypal.svg`, link: "https://www.paypal.com/paypalme/IgorAndin" }
+                { name: "Buy Me a Coffee", icon: `${baseUrl}paypal.svg`, link: "https://www.paypal.com/paypalme/IgorAndin" },
+                { name: "Buy a Cocktail", icon: `${baseUrl}icons8-revolut-50-umgewandelt-von-png.svg`, link: "https://revolut.me/igoruuvzu/pocket/Fn7zegM3Rb" }
               ].map((platform) => (
                 <a
                   key={platform.name}

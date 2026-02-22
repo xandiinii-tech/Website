@@ -30,6 +30,11 @@ export const MusicSection = () => {
       name: "Buy Me a Coffee",
       link: "https://www.paypal.com/paypalme/IgorAndin",
       icon: `${baseUrl}paypal.svg`
+    },
+    {
+      name: "Buy a Cocktail",
+      link: "https://revolut.me/igoruuvzu/pocket/Fn7zegM3Rb",
+      icon: `${baseUrl}icons8-revolut-50-umgewandelt-von-png.svg`
     }
   ];
 
