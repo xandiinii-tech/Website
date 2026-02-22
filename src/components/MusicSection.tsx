@@ -25,6 +25,11 @@ export const MusicSection = () => {
       name: "Apple Music",
       link: "https://music.apple.com",
       icon: `${baseUrl}apple-music.svg`
+    },
+    {
+      name: "Buy Me a Coffee",
+      link: "https://www.paypal.com/paypalme/IgorAndin",
+      icon: `${baseUrl}paypal.svg`
     }
   ];
 
