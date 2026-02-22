@@ -30,6 +30,13 @@ export const ToursSection = () => {
     },
     {
       id: 5,
+      event: "xandini | Live at Schillers",
+      date: "14.02.2026",
+      location: "Berlin",
+      link: "https://www.instagram.com/x_andiinii/"
+    },
+    {
+      id: 6,
       event: "Keta Kast Sessions",
       date: "Weekends",
       location: "Berlin",
