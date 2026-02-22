@@ -1,29 +1,30 @@
 export const MusicSection = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   const platforms = [
     {
       name: "Instagram",
       link: "https://www.instagram.com/x_andiinii/",
-      icon: "/instagram.svg"
+      icon: `${baseUrl}instagram.svg`
     },
     {
       name: "SoundCloud",
       link: "https://soundcloud.com/xandiinii",
-      icon: "/soundcloud.svg"
+      icon: `${baseUrl}soundcloud.svg`
     },
     {
       name: "YouTube",
       link: "https://www.xandini.de",
-      icon: "/youtube.svg"
+      icon: `${baseUrl}youtube.svg`
     },
     {
       name: "Spotify",
       link: "https://open.spotify.com/search/x%20andini",
-      icon: "/spotify.svg"
+      icon: `${baseUrl}spotify.svg`
     },
     {
       name: "Apple Music",
       link: "https://music.apple.com",
-      icon: "/apple-music.svg"
+      icon: `${baseUrl}apple-music.svg`
     }
   ];
 

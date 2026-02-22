@@ -1,4 +1,5 @@
 export const Footer = () => {
+  const baseUrl = import.meta.env.BASE_URL;
   return (
     <footer className="w-full bg-dark-800 border-t border-dark-700">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -26,11 +27,11 @@ export const Footer = () => {
             <h4 className="text-white font-bold mb-4 text-lg">Follow</h4>
             <div className="flex gap-3">
               {[
-                { name: "Instagram", icon: "/instagram.svg", url: "https://www.instagram.com/x_andiinii/" },
-                { name: "SoundCloud", icon: "/soundcloud.svg", url: "https://soundcloud.com/xandiinii" },
-                { name: "YouTube", icon: "/youtube.svg", url: "https://www.xandini.de" },
-                { name: "Spotify", icon: "/spotify.svg", url: "https://open.spotify.com/search/x%20andini" },
-                { name: "Apple Music", icon: "/apple-music.svg", url: "https://music.apple.com" },
+                { name: "Instagram", icon: `${baseUrl}instagram.svg`, url: "https://www.instagram.com/x_andiinii/" },
+                { name: "SoundCloud", icon: `${baseUrl}soundcloud.svg`, url: "https://soundcloud.com/xandiinii" },
+                { name: "YouTube", icon: `${baseUrl}youtube.svg`, url: "https://www.xandini.de" },
+                { name: "Spotify", icon: `${baseUrl}spotify.svg`, url: "https://open.spotify.com/search/x%20andini" },
+                { name: "Apple Music", icon: `${baseUrl}apple-music.svg`, url: "https://music.apple.com" },
               ].map((social, idx) => (
                 <a key={idx} href={social.url} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-br from-[#5A2D82] to-[#D12B81] rounded-lg p-2 flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300" title={social.name}>
                   <img src={social.icon} alt={social.name} className="w-5 h-5" />
