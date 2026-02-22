@@ -23,7 +23,7 @@ export const ToursSection = () => {
     },
     {
       id: 4,
-      event: "b2b Pio @ WK 51",
+      event: "b2b pio @ WK 51",
       date: "01.01.2026",
       location: "Berlin",
       link: "https://www.instagram.com/x_andiinii/"
@@ -38,7 +38,21 @@ export const ToursSection = () => {
     {
       id: 6,
       event: "Keta Kast Sessions",
-      date: "Weekends",
+      date: "28.02.2026",
+      location: "Berlin",
+      link: "https://www.instagram.com/x_andiinii/"
+    },
+    {
+      id: 7,
+      event: "Keta Kast Sessions",
+      date: "07.03.2026",
+      location: "Berlin",
+      link: "https://www.instagram.com/x_andiinii/"
+    },
+    {
+      id: 8,
+      event: "Keta Kast Sessions",
+      date: "14.03.2026",
       location: "Berlin",
       link: "https://www.instagram.com/x_andiinii/"
     },

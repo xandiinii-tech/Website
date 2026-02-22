@@ -5,6 +5,7 @@ import { SoundCloudSection } from './components/SoundCloudSection';
 import { ToursSection } from './components/ToursSection';
 import { BiographySection } from './components/BiographySection';
 import { GallerySection } from './components/GallerySection';
+import { ShopSection } from './components/ShopSection';
 import { Footer } from './components/Footer';
 import { SplashScreen } from './components/SplashScreen';
 import './index.css';
@@ -21,6 +22,7 @@ function App() {
         <SoundCloudSection />
         <ToursSection />
         <BiographySection />
+        <ShopSection />
         <GallerySection />
       </main>
       <Footer />
