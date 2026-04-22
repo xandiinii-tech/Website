@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface SplashScreenProps {
   onComplete: () => void;
@@ -18,13 +18,23 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [isHovering, setIsHovering] = useState(false);
   const [visibleLetters, setVisibleLetters] = useState<string[]>([]);
+  const hasCompletedRef = useRef(false);
+
+  const completeSplash = useCallback(() => {
+    if (hasCompletedRef.current) {
+      return;
+    }
+
+    hasCompletedRef.current = true;
+    setSplashPhase('background');
+    setIsVisible(false);
+    onComplete();
+  }, [onComplete]);
 
   useEffect(() => {
-    // After 9 seconds, fade out completely and hide X
+    // Auto-complete after 9 seconds if user doesn't skip it.
     const fadeTimer = setTimeout(() => {
-      setSplashPhase('fading');
-      setIsVisible(false);
-      onComplete();
+      completeSplash();
     }, 9000);
 
     // Letters appear sequentially while X is visible
@@ -39,7 +49,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
       clearTimeout(fadeTimer);
       letterTimers.forEach(timer => clearTimeout(timer));
     };
-  }, [onComplete]);
+  }, [completeSplash]);
 
   useEffect(() => {
     // Hide X when hovering for 0.5 seconds
@@ -90,6 +100,8 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
           ? 'bg-dark-900/50 opacity-50'
           : 'bg-transparent opacity-0'
       }`}
+      style={{ pointerEvents: splashPhase === 'background' ? 'none' : 'auto' }}
+      onClick={completeSplash}
     >
       {/* Glass shards */}
       {shards.map((shard) => (

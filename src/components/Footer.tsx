@@ -10,7 +10,7 @@ export const Footer = () => {
               For bookings contact:
             </p>
             <p>
-              <a href="mailto:bookings@xandini.music.net" className="text-purple-400 hover:text-pink-400 transition">bookings@xandini.music.net</a>
+              <a href="mailto:xandiinii@gmail.com" className="text-purple-400 hover:text-pink-400 transition">xandiinii@gmail.com</a>
             </p>
           </div>
 
