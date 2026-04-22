@@ -4,7 +4,7 @@ export const Footer = () => {
     <footer className="w-full bg-dark-800 border-t border-dark-700">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          <div>
+          <div id="contact" className="scroll-mt-28">
             <h3 className="text-3xl font-black bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-4">x andini</h3>
             <p className="text-gray-400 font-semibold mb-1">
               For bookings contact:
