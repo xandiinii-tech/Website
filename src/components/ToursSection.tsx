@@ -71,8 +71,9 @@ const toSortDate = (raw: string) => {
 };
 
 const fetchXmlThroughProxy = async (url: string) => {
-  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-  const response = await fetch(proxyUrl);
+  const cacheBustUrl = `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}`;
+  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(cacheBustUrl)}`;
+  const response = await fetch(proxyUrl, { cache: 'no-store' });
 
   if (!response.ok) {
     throw new Error('Proxy fetch failed');

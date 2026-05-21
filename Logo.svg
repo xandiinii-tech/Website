@@ -1,0 +1,39 @@
+<svg width="800" height="900" viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="900" fill="#0c0412" />
+
+  <defs>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <linearGradient id="lilaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4b0082;" />
+      <stop offset="50%" style="stop-color:#9d00ff;" />
+      <stop offset="100%" style="stop-color:#4b0082;" />
+    </linearGradient>
+
+    <linearGradient id="pinkGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff00ff;" />
+      <stop offset="50%" style="stop-color:#ff77ff;" />
+      <stop offset="100%" style="stop-color:#ff00ff;" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#neonGlow)">
+    <path d="M 150,150 Q 400,460 650,710 Q 400,340 150,150 Z" fill="url(#lilaGrad)" opacity="0.9" />
+
+    <path d="M 650,150 Q 400,460 150,710 Q 400,340 650,150 Z" fill="url(#pinkGrad)" />
+  </g>
+
+  <text x="400" y="820" text-anchor="middle" 
+        font-family="Arial Black, sans-serif" font-size="55" 
+        font-weight="900" fill="black" 
+        stroke="#ff22ff" stroke-width="1.5" 
+        filter="url(#neonGlow)" letter-spacing="4">
+    xandini.de
+  </text>
+</svg>

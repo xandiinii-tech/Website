@@ -1,0 +1,117 @@
+================================================================================
+                    PRINT ORDER SUMMARY - X ANDINI
+================================================================================
+
+PROJECT: Merch Drop - T-Shirt Collection
+DATE: March 2026
+CONTACT: bookings@xandini.de | @x_andiinii
+
+================================================================================
+PRODUCT 1: X LOGO CLUB TEE
+================================================================================
+
+Description:   Boxy black tee with embroidered neon X on chest + reflective back
+Price:         €35
+Sizes:         S, M, L, XL
+
+Fabric:        100% Cotton, Heavy 240gsm
+Fit:           Boxy cut
+Tags:          New / Limited first run
+
+PRINT SPECIFICATIONS:
+  Front:       Embroidered neon X logo (chest placement ~15cm)
+  Back:        Reflective full-width print
+  Technique:   Embroidery + Reflective ink screen print
+  
+DESIGN COLORS:
+  Base:        Black shirt
+  Front Logo:  Neon color (specify: __________)
+  Back Print:  Reflective material
+
+FILES NEEDED:
+  ☐ Vector logo files (AI/EPS format)
+  ☐ Embroidery digitization files
+  ☐ Reflective design mockup
+  ☐ Color specifications (Pantone/HEX)
+
+================================================================================
+PRODUCT 2: NEON PULSE LONGSLEEVE
+================================================================================
+
+Description:   Gradient sleeve print that glows under UV - unisex sizing
+Price:         €45
+Sizes:         S, M, L, XL
+
+Fabric:        Organic cotton, soft feel
+Features:      Thumb-hole cuffs, unisex fit
+Tags:          Drop / Trending
+
+PRINT SPECIFICATIONS:
+  Design:      Gradient color gradient on both sleeves
+  Effect:      UV-reactive (glows under UV light)
+  Technique:   UV-reactive digital print or specialty ink
+  
+DESIGN COLORS:
+  Sleeve L:    Gradient from __________ to __________
+  Sleeve R:    Gradient from __________ to __________
+  
+UV INK REQUIREMENTS:
+  Type:        UV-reactive / Glow-in-the-dark
+  Base Layer:  White ink underbase
+  
+FILES NEEDED:
+  ☐ Full-color gradient design files
+  ☐ UV ink color specifications
+  ☐ Print placement guidelines
+  ☐ Color swatches (printed on white base)
+
+================================================================================
+DELIVERY & QUANTITY
+================================================================================
+
+1st Run - Sample Order:
+  X Logo Club Tee:       [ ] S  [ ] M  [ ] L  [ ] XL  (Qty each: ___)
+  Neon Pulse Longsleeve: [ ] S  [ ] M  [ ] L  [ ] XL  (Qty each: ___)
+
+Bulk Orders:
+  Contact via email for bulk pricing
+
+Delivery Timeline:
+  Standard: ________________  days
+  Rush:     ________________  days
+
+Quality Approval:
+  [ ] Color match approval
+  [ ] Print placement verification
+  [ ] Sample review before full production
+
+================================================================================
+PRINT SHOP REQUIREMENTS
+================================================================================
+
+Must provide:
+  ✓ All vector art files (no low-res)
+  ✓ Color specifications (Pantone/RGB/HEX)
+  ✓ Exact sizing & placement guides
+  ✓ Sample approvals before production
+  ✓ Durability guarantee (wash tests)
+
+Special Considerations:
+  • Embroidery requires high-quality digitization
+  • Reflective ink needs proper curing
+  • UV-reactive ink needs white underbase
+  • All sizes must be QC checked
+
+================================================================================
+NOTES & SPECIAL REQUESTS
+================================================================================
+
+_____________________________________________________________________________
+_____________________________________________________________________________
+_____________________________________________________________________________
+
+Print Shop: _________________________  Contact: __________________________
+Email: ______________________________  Phone: ____________________________
+Quote Received: ______________________  Approval Date: ___________________
+
+================================================================================

@@ -12,6 +12,7 @@ type SoundCloudItem = {
   date: string;
   duration: string;
   href: string;
+  sortDate: number;
 };
 
 const formatDate = (raw: string) => {
@@ -32,8 +33,9 @@ const formatDate = (raw: string) => {
 };
 
 const fetchXmlThroughProxy = async (url: string) => {
-  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-  const response = await fetch(proxyUrl);
+  const cacheBustUrl = `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}`;
+  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(cacheBustUrl)}`;
+  const response = await fetch(proxyUrl, { cache: 'no-store' });
 
   if (!response.ok) {
     throw new Error('Proxy fetch failed');
@@ -43,7 +45,7 @@ const fetchXmlThroughProxy = async (url: string) => {
 };
 
 const getKetaTempoEpisode = (title: string) => {
-  const match = title.match(/keta\s*tempo\s*#?\s*(\d+)/i);
+  const match = title.match(/\bketa(?:\s+kast)?(?:\s*tempo)?\s*#?\s*(\d+)/i);
   return match ? Number(match[1]) : null;
 };
 
@@ -115,31 +117,36 @@ export function SoundCloudSection() {
       title: 'Keta Kast | KetaTempo # 6 | Psychedelics Deep',
       date: '19 Apr 2026',
       duration: '1:19:56',
-      href: 'https://soundcloud.com/xandiinii/keta-kast-ketatempo-6'
+      href: 'https://soundcloud.com/xandiinii/keta-kast-ketatempo-6',
+      sortDate: new Date('2026-04-19T00:00:00Z').getTime()
     },
     {
       title: 'Keta Kast | KetaTempo #5 | Cave of Wonders',
       date: '12 Apr 2026',
       duration: '1:21:14',
-      href: 'https://soundcloud.com/xandiinii/keta-tempo-5'
+      href: 'https://soundcloud.com/xandiinii/keta-tempo-5',
+      sortDate: new Date('2026-04-12T00:00:00Z').getTime()
     },
     {
       title: 'Keta Kast | KetaTempo #4 | Echoes from the Moon',
       date: '20 Mar 2026',
       duration: '1:33:01',
-      href: 'https://soundcloud.com/xandiinii/keta-kast-ketatempo-4-echoes'
+      href: 'https://soundcloud.com/xandiinii/keta-kast-ketatempo-4-echoes',
+      sortDate: new Date('2026-03-20T00:00:00Z').getTime()
     },
     {
       title: 'Keta Kast | KetaTempo #3 | Dance with Nature',
       date: '14 Mar 2026',
       duration: '1:11:46',
-      href: 'https://soundcloud.com/xandiinii/keta-kast-ketatempo-3-dance'
+      href: 'https://soundcloud.com/xandiinii/keta-kast-ketatempo-3-dance',
+      sortDate: new Date('2026-03-14T00:00:00Z').getTime()
     },
     {
       title: 'x andini | LIVE @ Schillers | Schillers Dark Valentine',
       date: '22 Feb 2026',
       duration: '1:25:25',
-      href: 'https://soundcloud.com/xandiinii/xdarkvalentine'
+      href: 'https://soundcloud.com/xandiinii/xdarkvalentine',
+      sortDate: new Date('2026-02-22T00:00:00Z').getTime()
     }
   ];
   const [soundCloudSets, setSoundCloudSets] = useState<SoundCloudItem[]>(fallbackSoundCloudSets);
@@ -195,12 +202,14 @@ export function SoundCloudSection() {
             const href = item.getElementsByTagName('link')[0]?.textContent?.trim() ?? '';
             const rawDate = item.getElementsByTagName('pubDate')[0]?.textContent?.trim() ?? '';
             const duration = item.getElementsByTagName('itunes:duration')[0]?.textContent?.trim() ?? '';
+            const sortDate = Number.isNaN(new Date(rawDate).getTime()) ? 0 : new Date(rawDate).getTime();
 
             return {
               title,
               href,
               date: formatDate(rawDate),
-              duration
+              duration,
+              sortDate
             };
           })
           .filter((track) => Boolean(track.title && track.href));
@@ -214,9 +223,11 @@ export function SoundCloudSection() {
         currentFeedUrl = nextFeedUrl;
       }
 
-      const dedupedTracks = allTracks.filter(
-        (track, index, source) => source.findIndex((candidate) => candidate.href === track.href) === index
-      );
+      const dedupedTracks = allTracks
+        .filter(
+          (track, index, source) => source.findIndex((candidate) => candidate.href === track.href) === index
+        )
+        .sort((a, b) => b.sortDate - a.sortDate);
 
       if (dedupedTracks.length > 0) {
         setSoundCloudSets(dedupedTracks);
