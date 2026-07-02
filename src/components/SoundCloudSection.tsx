@@ -77,6 +77,11 @@ export function SoundCloudSection() {
 
   const fallbackVideos: VideoItem[] = [
     {
+      id: '5O0zN776Z8A',
+      title: 'x andini | LIVE @ Karlstraße Fest | Spontan augfelegt und Nachbarschaft geshaked',
+      href: 'https://www.youtube.com/watch?v=5O0zN776Z8A'
+    },
+    {
       id: 'pKRBcQXXByY',
       title: 'Keta Kast | KetaTempo # 6 | Psychedelics Deep',
       href: 'https://www.youtube.com/watch?v=pKRBcQXXByY'
@@ -113,6 +118,13 @@ export function SoundCloudSection() {
   const [showAllYouTube, setShowAllYouTube] = useState(false);
   const [showAllSoundCloud, setShowAllSoundCloud] = useState(false);
   const fallbackSoundCloudSets: SoundCloudItem[] = [
+    {
+      title: 'x andini | LIVE @ Karlstraße Fest | Spontan augfelegt und Nachbarschaft geshaked',
+      date: '21 Jun 2026',
+      duration: '1:32:17',
+      href: 'https://soundcloud.com/xandiinii/kfest',
+      sortDate: new Date('2026-06-21T00:00:00Z').getTime()
+    },
     {
       title: 'Keta Kast | KetaTempo # 6 | Psychedelics Deep',
       date: '19 Apr 2026',
