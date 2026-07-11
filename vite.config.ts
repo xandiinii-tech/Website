@@ -4,7 +4,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'docs'
+    outDir: 'docs',
+    // Don't wipe docs/ on build — it also hosts the deployed docs/soundgrow app.
+    emptyOutDir: false
   },
   server: {
     port: 3000

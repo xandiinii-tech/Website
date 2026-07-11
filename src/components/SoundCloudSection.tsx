@@ -32,42 +32,40 @@ const formatDate = (raw: string) => {
   });
 };
 
+// RSS feeds don't send CORS headers, so a static site must go through a proxy.
+// A single proxy is unreliable — try several in order until one returns valid XML.
+const PROXY_BUILDERS: Array<(u: string) => string> = [
+  (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+  (u) => `https://corsproxy.io/?url=${encodeURIComponent(u)}`,
+  (u) => `https://thingproxy.freeboard.io/fetch/${u}`,
+];
+
 const fetchXmlThroughProxy = async (url: string) => {
   const cacheBustUrl = `${url}${url.includes('?') ? '&' : '?'}_=${Date.now()}`;
-  const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(cacheBustUrl)}`;
-  const response = await fetch(proxyUrl, { cache: 'no-store' });
+  let lastError: unknown = new Error('No proxy attempted');
 
-  if (!response.ok) {
-    throw new Error('Proxy fetch failed');
+  for (const build of PROXY_BUILDERS) {
+    try {
+      const response = await fetch(build(cacheBustUrl), { cache: 'no-store' });
+      if (!response.ok) {
+        throw new Error(`Proxy status ${response.status}`);
+      }
+      const text = await response.text();
+      if (text && text.includes('<')) {
+        return text;
+      }
+      throw new Error('Empty proxy response');
+    } catch (error) {
+      lastError = error;
+    }
   }
 
-  return response.text();
+  throw lastError;
 };
 
-const getKetaTempoEpisode = (title: string) => {
-  const match = title.match(/\bketa(?:\s+kast)?(?:\s*tempo)?\s*#?\s*(\d+)/i);
-  return match ? Number(match[1]) : null;
-};
-
+// Newest upload first — the latest video always leads the list.
 const sortYouTubeVideos = (items: VideoItem[]) => {
-  return [...items].sort((a, b) => {
-    const aEpisode = getKetaTempoEpisode(a.title);
-    const bEpisode = getKetaTempoEpisode(b.title);
-
-    if (aEpisode !== null && bEpisode !== null) {
-      return bEpisode - aEpisode;
-    }
-
-    if (aEpisode !== null) {
-      return -1;
-    }
-
-    if (bEpisode !== null) {
-      return 1;
-    }
-
-    return (b.publishedAt ?? 0) - (a.publishedAt ?? 0);
-  });
+  return [...items].sort((a, b) => (b.publishedAt ?? 0) - (a.publishedAt ?? 0));
 };
 
 export function SoundCloudSection() {
@@ -77,9 +75,16 @@ export function SoundCloudSection() {
 
   const fallbackVideos: VideoItem[] = [
     {
+      id: 'BLQUHezYW24',
+      title: 'Bouncy Mäusy | Melodic Techno & Progressive House Mix 2026 | Keta Kast',
+      href: 'https://www.youtube.com/watch?v=BLQUHezYW24',
+      publishedAt: new Date('2026-07-06T00:00:00Z').getTime()
+    },
+    {
       id: '5O0zN776Z8A',
       title: 'x andini | LIVE @ Karlstraße Fest | Spontan augfelegt und Nachbarschaft geshaked',
-      href: 'https://www.youtube.com/watch?v=5O0zN776Z8A'
+      href: 'https://www.youtube.com/watch?v=5O0zN776Z8A',
+      publishedAt: new Date('2026-06-21T00:00:00Z').getTime()
     },
     {
       id: 'pKRBcQXXByY',
@@ -118,6 +123,13 @@ export function SoundCloudSection() {
   const [showAllYouTube, setShowAllYouTube] = useState(false);
   const [showAllSoundCloud, setShowAllSoundCloud] = useState(false);
   const fallbackSoundCloudSets: SoundCloudItem[] = [
+    {
+      title: 'Keta Kast | Bouncy Mäusi',
+      date: '05 Jul 2026',
+      duration: '1:12:16',
+      href: 'https://soundcloud.com/xandiinii/bouncymausi',
+      sortDate: new Date('2026-07-05T20:24:21Z').getTime()
+    },
     {
       title: 'x andini | LIVE @ Karlstraße Fest | Spontan augfelegt und Nachbarschaft geshaked',
       date: '21 Jun 2026',
@@ -198,54 +210,49 @@ export function SoundCloudSection() {
   }, []);
 
   const loadSoundCloudTracks = useCallback(async () => {
-    try {
-      const maxPages = 5;
-      let currentFeedUrl = 'https://feeds.soundcloud.com/users/soundcloud:users:1613003791/sounds.rss';
-      const allTracks: SoundCloudItem[] = [];
+    const maxPages = 5;
+    let currentFeedUrl = 'https://feeds.soundcloud.com/users/soundcloud:users:1613003791/sounds.rss';
+    const allTracks: SoundCloudItem[] = [];
 
-      for (let page = 0; page < maxPages && currentFeedUrl; page += 1) {
-        const xmlText = await fetchXmlThroughProxy(currentFeedUrl);
-        const xml = new DOMParser().parseFromString(xmlText, 'application/xml');
-
-        const items = Array.from(xml.getElementsByTagName('item'));
-        const pageTracks: SoundCloudItem[] = items
-          .map((item) => {
-            const title = item.getElementsByTagName('title')[0]?.textContent?.trim() ?? '';
-            const href = item.getElementsByTagName('link')[0]?.textContent?.trim() ?? '';
-            const rawDate = item.getElementsByTagName('pubDate')[0]?.textContent?.trim() ?? '';
-            const duration = item.getElementsByTagName('itunes:duration')[0]?.textContent?.trim() ?? '';
-            const sortDate = Number.isNaN(new Date(rawDate).getTime()) ? 0 : new Date(rawDate).getTime();
-
-            return {
-              title,
-              href,
-              date: formatDate(rawDate),
-              duration,
-              sortDate
-            };
-          })
-          .filter((track) => Boolean(track.title && track.href));
-
-        allTracks.push(...pageTracks);
-
-        const nextFeedUrl = Array.from(xml.getElementsByTagName('atom:link'))
-          .find((linkNode) => linkNode.getAttribute('rel') === 'next')
-          ?.getAttribute('href') ?? '';
-
-        currentFeedUrl = nextFeedUrl;
+    for (let page = 0; page < maxPages && currentFeedUrl; page += 1) {
+      let xmlText: string;
+      try {
+        xmlText = await fetchXmlThroughProxy(currentFeedUrl);
+      } catch {
+        // One page failed — keep whatever earlier pages returned rather than
+        // discarding everything (which would drop the newest track).
+        break;
       }
 
-      const dedupedTracks = allTracks
-        .filter(
-          (track, index, source) => source.findIndex((candidate) => candidate.href === track.href) === index
-        )
-        .sort((a, b) => b.sortDate - a.sortDate);
+      const xml = new DOMParser().parseFromString(xmlText, 'application/xml');
+      const items = Array.from(xml.getElementsByTagName('item'));
+      const pageTracks: SoundCloudItem[] = items
+        .map((item) => {
+          const title = item.getElementsByTagName('title')[0]?.textContent?.trim() ?? '';
+          const href = item.getElementsByTagName('link')[0]?.textContent?.trim() ?? '';
+          const rawDate = item.getElementsByTagName('pubDate')[0]?.textContent?.trim() ?? '';
+          const duration = item.getElementsByTagName('itunes:duration')[0]?.textContent?.trim() ?? '';
+          const sortDate = Number.isNaN(new Date(rawDate).getTime()) ? 0 : new Date(rawDate).getTime();
 
-      if (dedupedTracks.length > 0) {
-        setSoundCloudSets(dedupedTracks);
-      }
-    } catch {
-      // Keep fallback items when feed is unavailable.
+          return { title, href, date: formatDate(rawDate), duration, sortDate };
+        })
+        .filter((track) => Boolean(track.title && track.href));
+
+      allTracks.push(...pageTracks);
+
+      currentFeedUrl = Array.from(xml.getElementsByTagName('atom:link'))
+        .find((linkNode) => linkNode.getAttribute('rel') === 'next')
+        ?.getAttribute('href') ?? '';
+    }
+
+    const dedupedTracks = allTracks
+      .filter(
+        (track, index, source) => source.findIndex((candidate) => candidate.href === track.href) === index
+      )
+      .sort((a, b) => b.sortDate - a.sortDate);
+
+    if (dedupedTracks.length > 0) {
+      setSoundCloudSets(dedupedTracks);
     }
   }, []);
 
