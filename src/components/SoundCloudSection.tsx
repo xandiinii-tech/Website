@@ -71,7 +71,7 @@ const sortYouTubeVideos = (items: VideoItem[]) => {
 export function SoundCloudSection() {
   const initialYouTubeCount = 6;
   const initialSoundCloudCount = 3;
-  const feedRefreshMs = 5 * 60 * 1000;
+  const feedRefreshMs = 30 * 60 * 1000;   // gentle: feeds rarely change
 
   const fallbackVideos: VideoItem[] = [
     {
@@ -258,44 +258,14 @@ export function SoundCloudSection() {
 
   useEffect(() => {
     void loadYouTubeVideos();
-
-    const intervalId = window.setInterval(() => {
-      void loadYouTubeVideos();
-    }, feedRefreshMs);
-
-    const onVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        void loadYouTubeVideos();
-      }
-    };
-
-    document.addEventListener('visibilitychange', onVisibilityChange);
-
-    return () => {
-      window.clearInterval(intervalId);
-      document.removeEventListener('visibilitychange', onVisibilityChange);
-    };
+    const intervalId = window.setInterval(() => { void loadYouTubeVideos(); }, feedRefreshMs);
+    return () => window.clearInterval(intervalId);
   }, [feedRefreshMs, loadYouTubeVideos]);
 
   useEffect(() => {
     void loadSoundCloudTracks();
-
-    const intervalId = window.setInterval(() => {
-      void loadSoundCloudTracks();
-    }, feedRefreshMs);
-
-    const onVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        void loadSoundCloudTracks();
-      }
-    };
-
-    document.addEventListener('visibilitychange', onVisibilityChange);
-
-    return () => {
-      window.clearInterval(intervalId);
-      document.removeEventListener('visibilitychange', onVisibilityChange);
-    };
+    const intervalId = window.setInterval(() => { void loadSoundCloudTracks(); }, feedRefreshMs);
+    return () => window.clearInterval(intervalId);
   }, [feedRefreshMs, loadSoundCloudTracks]);
 
   useEffect(() => {
