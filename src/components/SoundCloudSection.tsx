@@ -127,7 +127,7 @@ export function SoundCloudSection() {
       title: 'Melodic House & Techno Mix 2026 — Keta downtempo @ Olympic Park Munich | x andini (DE)',
       date: '07 Aug 2026',
       duration: '',
-      href: 'https://soundcloud.com/xandiinii/nymphemberg-castle',
+      href: 'https://soundcloud.com/xandiinii/oliympicparkmunich',
       sortDate: new Date('2026-08-07T00:00:00Z').getTime()
     },
     {
@@ -268,7 +268,7 @@ export function SoundCloudSection() {
         title: 'Melodic House & Techno Mix 2026 — Keta downtempo @ Olympic Park Munich | x andini (DE)',
         date: '07 Aug 2026',
         duration: '',
-        href: 'https://soundcloud.com/xandiinii/nymphemberg-castle',
+        href: 'https://soundcloud.com/xandiinii/oliympicparkmunich',
         sortDate: new Date('2026-08-07T00:00:00Z').getTime()
       },
       {
