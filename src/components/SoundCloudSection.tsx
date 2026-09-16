@@ -124,6 +124,13 @@ export function SoundCloudSection() {
   const [showAllSoundCloud, setShowAllSoundCloud] = useState(false);
   const fallbackSoundCloudSets: SoundCloudItem[] = [
     {
+      title: 'Melodic House & Techno Mix 2026 — Keta downtempo @ Olympic Park Munich | x andini (DE)',
+      date: '07 Aug 2026',
+      duration: '',
+      href: 'https://soundcloud.com/xandiinii/nymphemberg-castle',
+      sortDate: new Date('2026-08-07T00:00:00Z').getTime()
+    },
+    {
       title: 'Melodic Techno Mix 2026 — Bounce 160 | x andini (DE) | Keta Kast',
       date: '23 Jul 2026',
       duration: '1:04:17',
@@ -257,6 +264,13 @@ export function SoundCloudSection() {
 
     const dedupedTracks = [
       ...allTracks,
+      {
+        title: 'Melodic House & Techno Mix 2026 — Keta downtempo @ Olympic Park Munich | x andini (DE)',
+        date: '07 Aug 2026',
+        duration: '',
+        href: 'https://soundcloud.com/xandiinii/nymphemberg-castle',
+        sortDate: new Date('2026-08-07T00:00:00Z').getTime()
+      },
       {
         title: 'Melodic Techno Mix 2026 — Bounce 160 | x andini (DE) | Keta Kast',
         date: '23 Jul 2026',
