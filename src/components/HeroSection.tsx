@@ -52,13 +52,13 @@ export const HeroSection = () => {
           <div className="text-left">
             <h2 className="text-3xl font-bold text-white mb-6">x andini</h2>
             <p className="text-gray-300 text-lg leading-relaxed mb-6">
-              x andini is a Berlin-based DJ exploring the space between depth and movement. His sound blends melodic textures with subtle, driving energy - crafted for both introspection and the dancefloor.
+              x andini is a Berlin-based DJ moving through deep atmospheres and high-impact peak-time techno. His sound combines mechanical textures, driving rhythms, and emotional tension, shaped for introspection and the dancefloor.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              Each set is an exchange. Emotional, intimate, and unforced - leaving space for the night to unfold naturally.
+              Each set builds with purpose, creating space for intensity, connection, and release.
             </p>
             <p className="text-purple-200 text-lg leading-relaxed mb-8 font-medium">
-              A space to feel, connect, and lose yourself.
+              A place to feel, move, and lose yourself in the night.
             </p>
             <div className="flex gap-3 mb-8">
               {[

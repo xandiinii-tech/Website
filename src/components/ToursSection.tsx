@@ -86,7 +86,7 @@ export const ToursSection = () => {
   const [auroraShift, setAuroraShift] = useState(0);
   const [upcomingEvents, setUpcomingEvents] = useState<TourEvent[]>([
     {
-      id: 'fallback-1',
+      id: 'fallback-schillers-cosmic-rave',
       event: 'Schillers Cosmic Rave',
       date: '14.11.2025',
       sortDate: new Date('2025-11-14').getTime(),
@@ -95,7 +95,7 @@ export const ToursSection = () => {
       source: 'manual'
     },
     {
-      id: 'fallback-2',
+      id: 'fallback-charlies-deep-downtempo',
       event: 'Charlies Deep Downtempo',
       date: '13.12.2025',
       sortDate: new Date('2025-12-13').getTime(),
@@ -104,7 +104,7 @@ export const ToursSection = () => {
       source: 'manual'
     },
     {
-      id: 'fallback-3',
+      id: 'fallback-wk-51-nye',
       event: 'WK 51 NYE',
       date: '31.12.2025',
       sortDate: new Date('2025-12-31').getTime(),
@@ -113,12 +113,57 @@ export const ToursSection = () => {
       source: 'manual'
     },
     {
-      id: 'fallback-4',
+      id: 'fallback-schillers-dark-valentine',
       event: 'x andini | LIVE @ Schillers | Schillers Dark Valentine',
       date: '14.02.2026',
       sortDate: new Date('2026-02-14').getTime(),
       location: 'Cottbus',
       link: 'https://soundcloud.com/xandiinii/xdarkvalentine?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=be9764b7f89945f8869f790ee15c9dcc',
+      source: 'manual'
+    },
+    {
+      id: 'fallback-karlstrasse-fest',
+      event: 'x andini | LIVE @ Karlstraße Fest',
+      date: '13.06.2026',
+      sortDate: new Date('2026-06-13').getTime(),
+      location: 'Cottbus',
+      link: 'https://www.instagram.com/x_andiinii/',
+      source: 'manual'
+    },
+    {
+      id: 'fallback-olympic-park-munich',
+      event: 'x andini | LIVE @ Olympic Park Munich',
+      date: '08.04.2026',
+      sortDate: new Date('2026-04-08').getTime(),
+      location: 'Munich',
+      link: 'https://www.instagram.com/x_andiinii/',
+      source: 'manual'
+    },
+    {
+      id: 'fallback-wilde-moehre-aufbau-rosa',
+      event: 'x andini | LIVE @ Wilde Möhre Aufbau Rosa',
+      date: '01.08.2026',
+      sortDate: new Date('2026-08-01').getTime(),
+      location: 'Göritz',
+      link: 'https://www.instagram.com/x_andiinii/',
+      source: 'manual'
+    },
+    {
+      id: 'fallback-suess-war-gestern',
+      event: 'x andini | LIVE at Süss war gestern',
+      date: '22.07.2026',
+      sortDate: new Date('2026-07-22').getTime(),
+      location: 'Berlin',
+      link: 'https://www.instagram.com/x_andiinii/',
+      source: 'manual'
+    },
+    {
+      id: 'fallback-schillers-circus-party',
+      event: 'x andini | LIVE @ Schillers Circus Party',
+      date: '12.09.2026',
+      sortDate: new Date('2026-09-12').getTime(),
+      location: 'Cottbus',
+      link: 'https://www.instagram.com/x_andiinii/',
       source: 'manual'
     }
   ]);
@@ -204,17 +249,91 @@ export const ToursSection = () => {
         })
         .filter((item): item is TourEvent => Boolean(item.event && item.link));
 
-      const highlightEvent: TourEvent = {
-        id: 'manual-schillers-dark-valentine',
-        event: 'x andini | LIVE @ Schillers | Schillers Dark Valentine',
-        date: '14.02.2026',
-        sortDate: new Date('2026-02-14T23:59:59Z').getTime(),
-        location: 'Cottbus',
-        link: 'https://soundcloud.com/xandiinii/xdarkvalentine?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=be9764b7f89945f8869f790ee15c9dcc',
-        source: 'manual'
-      };
+      const manualEvents: TourEvent[] = [
+        {
+          id: 'manual-schillers-cosmic-rave',
+          event: 'Schillers Cosmic Rave',
+          date: '14.11.2025',
+          sortDate: new Date('2025-11-14T23:59:59Z').getTime(),
+          location: 'Cottbus',
+          link: 'https://www.instagram.com/x_andiinii/',
+          source: 'manual'
+        },
+        {
+          id: 'manual-charlies-deep-downtempo',
+          event: 'Charlies Deep Downtempo',
+          date: '13.12.2025',
+          sortDate: new Date('2025-12-13T23:59:59Z').getTime(),
+          location: 'Berlin',
+          link: 'https://www.instagram.com/x_andiinii/',
+          source: 'manual'
+        },
+        {
+          id: 'manual-wk-51-nye',
+          event: 'WK 51 NYE',
+          date: '31.12.2025',
+          sortDate: new Date('2025-12-31T23:59:59Z').getTime(),
+          location: 'Cottbus',
+          link: 'https://www.instagram.com/x_andiinii/',
+          source: 'manual'
+        },
+        {
+          id: 'manual-schillers-dark-valentine',
+          event: 'x andini | LIVE @ Schillers | Schillers Dark Valentine',
+          date: '14.02.2026',
+          sortDate: new Date('2026-02-14T23:59:59Z').getTime(),
+          location: 'Cottbus',
+          link: 'https://soundcloud.com/xandiinii/xdarkvalentine?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=be9764b7f89945f8869f790ee15c9dcc',
+          source: 'manual'
+        },
+        {
+          id: 'manual-karlstrasse-fest',
+          event: 'x andini | LIVE @ Karlstraße Fest',
+          date: '13.06.2026',
+          sortDate: new Date('2026-06-13T23:59:59Z').getTime(),
+          location: 'Cottbus',
+          link: 'https://www.instagram.com/x_andiinii/',
+          source: 'manual'
+        },
+        {
+          id: 'manual-olympic-park-munich',
+          event: 'x andini | LIVE @ Olympic Park Munich',
+          date: '08.04.2026',
+          sortDate: new Date('2026-04-08T23:59:59Z').getTime(),
+          location: 'Munich',
+          link: 'https://www.instagram.com/x_andiinii/',
+          source: 'manual'
+        },
+        {
+          id: 'manual-wilde-moehre-aufbau-rosa',
+          event: 'x andini | LIVE @ Wilde Möhre Aufbau Rosa',
+          date: '01.08.2026',
+          sortDate: new Date('2026-08-01T23:59:59Z').getTime(),
+          location: 'Göritz',
+          link: 'https://www.instagram.com/x_andiinii/',
+          source: 'manual'
+        },
+        {
+          id: 'manual-suess-war-gestern',
+          event: 'x andini | LIVE at Süss war gestern',
+          date: '22.07.2026',
+          sortDate: new Date('2026-07-22T23:59:59Z').getTime(),
+          location: 'Berlin',
+          link: 'https://www.instagram.com/x_andiinii/',
+          source: 'manual'
+        },
+        {
+          id: 'manual-schillers-circus-party',
+          event: 'x andini | LIVE @ Schillers Circus Party',
+          date: '12.09.2026',
+          sortDate: new Date('2026-09-12T23:59:59Z').getTime(),
+          location: 'Cottbus',
+          link: 'https://www.instagram.com/x_andiinii/',
+          source: 'manual'
+        }
+      ];
 
-      const merged = [highlightEvent, ...youtubeEvents, ...soundCloudEvents].sort((a, b) => b.sortDate - a.sortDate);
+      const merged = [...manualEvents].sort((a, b) => b.sortDate - a.sortDate);
 
       const dedupedByTitle = new Map<string, TourEvent>();
       for (const item of merged) {
@@ -242,29 +361,6 @@ export const ToursSection = () => {
       // Keep fallback upcoming events when feeds are unavailable.
     }
   }, []);
-
-  useEffect(() => {
-    const refreshMs = 5 * 60 * 1000;
-
-    void loadUpcomingEvents();
-
-    const intervalId = window.setInterval(() => {
-      void loadUpcomingEvents();
-    }, refreshMs);
-
-    const onVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        void loadUpcomingEvents();
-      }
-    };
-
-    document.addEventListener('visibilitychange', onVisibilityChange);
-
-    return () => {
-      window.clearInterval(intervalId);
-      document.removeEventListener('visibilitychange', onVisibilityChange);
-    };
-  }, [loadUpcomingEvents]);
 
   const toursBoxStyle: CSSProperties = {
     backgroundImage: `
