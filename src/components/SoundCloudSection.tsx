@@ -209,7 +209,10 @@ export function SoundCloudSection() {
         .filter((video: VideoItem) => Boolean(video.id && video.title && video.href));
 
       if (parsed.length > 0) {
-        setLatestVideos(sortYouTubeVideos(parsed));
+        const mergedVideos = [...fallbackVideos, ...parsed].filter(
+          (video, index, source) => source.findIndex((candidate) => candidate.href === video.href) === index
+        );
+        setLatestVideos(sortYouTubeVideos(mergedVideos));
       }
     } catch {
       // Keep fallback items when feed is unavailable.
@@ -268,7 +271,12 @@ export function SoundCloudSection() {
       .sort((a, b) => b.sortDate - a.sortDate);
 
     if (dedupedTracks.length > 0) {
-      setSoundCloudSets(dedupedTracks);
+      const mergedTracks = [...fallbackSoundCloudSets, ...dedupedTracks]
+        .filter(
+          (track, index, source) => source.findIndex((candidate) => candidate.href === track.href) === index
+        )
+        .sort((a, b) => b.sortDate - a.sortDate);
+      setSoundCloudSets(mergedTracks);
     }
   }, []);
 
