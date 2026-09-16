@@ -124,6 +124,13 @@ export function SoundCloudSection() {
   const [showAllSoundCloud, setShowAllSoundCloud] = useState(false);
   const fallbackSoundCloudSets: SoundCloudItem[] = [
     {
+      title: 'Melodic Techno Mix 2026 — Bounce 160 | x andini (DE) | Keta Kast',
+      date: '23 Jul 2026',
+      duration: '1:04:17',
+      href: 'https://soundcloud.com/xandiinii/01-new-bouncy',
+      sortDate: new Date('2026-07-23T00:00:00Z').getTime()
+    },
+    {
       title: 'Keta Kast | Bouncy Mäusi',
       date: '05 Jul 2026',
       duration: '1:12:16',
@@ -245,7 +252,16 @@ export function SoundCloudSection() {
         ?.getAttribute('href') ?? '';
     }
 
-    const dedupedTracks = allTracks
+    const dedupedTracks = [
+      ...allTracks,
+      {
+        title: 'Melodic Techno Mix 2026 — Bounce 160 | x andini (DE) | Keta Kast',
+        date: '23 Jul 2026',
+        duration: '1:04:17',
+        href: 'https://soundcloud.com/xandiinii/01-new-bouncy',
+        sortDate: new Date('2026-07-23T00:00:00Z').getTime()
+      }
+    ]
       .filter(
         (track, index, source) => source.findIndex((candidate) => candidate.href === track.href) === index
       )
